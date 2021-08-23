@@ -1,11 +1,14 @@
 # LiftControlSystem
 Commmon dispatch algorithms 
-1. First Come First Serve
-2. Shortest Seek Time First
-3. SCAN
-4. LOOK
+1. First Come First Serve - Serve requests based on first come first serve basis.
+2. Shortest Seek Time First - Serve requests based on the closed pickup floor.
+3. SCAN - Continuosly scan all floors for any waiting picups and serve them.
+4. LOOK - Its very similar to 'Shortest Seek Time First' but also looking ahead and see if there are
+other requests to be served ahead.
 
-This dispatch algorithm implements Shortest Seek Time First dispatch algorithm.
+To be more efficient, most of the implemenation combines several of above algorithms base on use cases.
+
+This dispatch algorithm implemented in this program is  'Shortest Seek Time First' dispatch algorithm.
 
 This program also implements Stratergy Pattern. 
 If we add more algorithms, the control system can easily switch between the algorithms using the Stratergy Pattern.
