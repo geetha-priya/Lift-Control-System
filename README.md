@@ -6,9 +6,9 @@ Commmon dispatch algorithms
 4. LOOK - Its very similar to 'Shortest Seek Time First' but also looking ahead and see if there are
 other requests to be served ahead.
 
-To be more efficient, most of the implemenation combines several of above algorithms base on use cases.
+To be more efficient, most of the implemenation combines several of above algorithms based on use cases.
 
-This dispatch algorithm implemented in this program is  'Shortest Seek Time First' dispatch algorithm.
+The dispatch algorithm implemented in this program is 'Shortest Seek Time First' dispatch algorithm.
 
 This program also implements Stratergy Pattern. 
 If we add more algorithms, the control system can easily switch between the algorithms using the Stratergy Pattern.
