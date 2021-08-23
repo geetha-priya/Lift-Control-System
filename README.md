@@ -4,10 +4,11 @@ Commmon dispatch algorithms
 2. Shortest Seek Time First
 3. SCAN
 4. LOOK
+
 This dispatch algorithm implements Shortest Seek Time First dispatch algorithm.
 
-This program also impliments Stratergy Patter. 
-If we add more algorithms, the control system can easily swith between the algorithms using the Stratergy Pattern.
+This program also implements Stratergy Pattern. 
+If we add more algorithms, the control system can easily switch between the algorithms using the Stratergy Pattern.
 
 ## Environment
 The application is a .Net core 3.1 project developed using C# in the visual studio 19 environment.
