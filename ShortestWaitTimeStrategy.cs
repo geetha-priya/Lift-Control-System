@@ -100,8 +100,19 @@ class ShortestWaitTimeStrategy : IDispatchingStrategy
             }
             else if (e.DestinationFloor == e.CurrentFloor && system.WaitingPassengers.Any())
             {
-                // Since there are no passengers in the lift, next destination is originating floor of one/more waiting passengers.
+                /*
+                 * Since there are no passengers in the lift, next destination is originating floor of one/more waiting passengers.
+                 * There are several possible ways to determine destination floor for a lift here.
+                 */
+
+                // case 1: pick originating floor with less passengers as destination floor
                 destinationFloor = system.WaitingPassengers.GroupBy(r => new { r.OriginatingFloor }).OrderBy(g => g.Count()).First().Key.OriginatingFloor;
+
+                // case 2: pick originating floor with more passengers as destination floor
+                /*destinationFloor = system.WaitingPassengers.GroupBy(r => new { r.OriginatingFloor }).OrderByDescending(g => g.Count()).First().Key.OriginatingFloor;*/
+
+                // case 3: pick nearest originating floor as destination floor
+                /*destinationFloor = system.WaitingPassengers.OrderBy(r => r.OriginatingFloor).GroupBy(r => new { r.OriginatingFloor }).ToList().First().Key.OriginatingFloor;*/
             }
             else
             {
@@ -115,7 +126,7 @@ class ShortestWaitTimeStrategy : IDispatchingStrategy
                 : e.CurrentFloor + (destinationFloor > e.CurrentFloor ? 1 : -1);
             Lift.Update(system.Lifts, e.Id, floorNumber, destinationFloor);
 
-            //Console.WriteLine($"Lift {e.Id + 1} is in L{e.CurrentFloor}, Destination Floor Number is L{e.DestinationFloor}");
+            Console.WriteLine($"Lift {e.Id + 1} is in L{e.CurrentFloor}, Destination Floor Number is L{e.DestinationFloor}");
         });
     }
 }
